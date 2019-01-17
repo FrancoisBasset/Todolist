@@ -1,15 +1,10 @@
 FROM mariadb
 
-ENV MYSQL_ROOT_PASSWORD 0000
+ENV MYSQL_ROOT_PASSWORD root
 
-COPY request /usr/sql/task.sql
+COPY request.sql /docker-entrypoint-initdb.d
+RUN ["/bin/sh", "-c", "chmod 777 /docker-entrypoint-initdb.d/request.sql"]
 EXPOSE 3306
 
-RUN echo 'ok'
-
 CMD ["mysqld"]
-
-CMD ["mysql -u root -p0000 -e 'CREATE DATABASE todolist;'"]
-
-CMD ["mysql -u root -p0000 -D tasks < /usr/sql/request"]
 

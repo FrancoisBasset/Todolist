@@ -1,8 +1,8 @@
 create database todolist;
 
+use todolist;
+
 CREATE TABLE tasks(task_id int, task_description varchar(255), task_is_done int(1));
-
-
 
 INSERT INTO tasks (task_id, task_description, task_is_done) VALUES
 (1,'learn how to use mysql',1),
