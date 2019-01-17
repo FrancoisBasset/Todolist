@@ -1,6 +1,6 @@
 <?php
 
-$connection = new PDO("mysql:dbname=todolist;host=172.17.0.2", "root", "root");
+$connection = new PDO("mysql:dbname=todolist;host=172.19.0.2", "root", "root");
 
 ?>
 

@@ -1,0 +1,8 @@
+version: "2"
+services:
+  base:
+    image: "todolist_base"
+
+  web:
+    image: "todolist"
+    depends_on: [ base ]
