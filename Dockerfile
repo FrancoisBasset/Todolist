@@ -1,8 +1,12 @@
 from php:7.2-apache
 
-RUN ["/bin/sh", "-c", "chmod 777 /var/www/html"]
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+    && docker-php-ext-install -j$(nproc) pdo pdo_mysql
 
-RUN ["/bin/sh", "-c", "mkdir -p /etc/php"]
+RUN ["/bin/sh", "-c", "chmod 777 /var/www/html"]
 
 WORKDIR /usr/local/etc/php
 
